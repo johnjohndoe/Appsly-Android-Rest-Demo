@@ -17,10 +17,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+
+    packagingOptions {
+        pickFirst 'META-INF/ASL2.0'
+        pickFirst 'META-INF/LICENSE'
+        pickFirst 'META-INF/NOTICE'
+    }
 }
 
 
 dependencies {
     compile 'com.android.support:appcompat-v7:19.+'
+    compile('ly.apps:android-rest:1.2-SNAPSHOT@aar') {
+        transitive = true
+        changing = true
+    }
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
